@@ -1,0 +1,4 @@
+node_modules/
+*.log
+extracted_report.txt
+db/database.db
