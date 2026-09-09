@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin DML Control Panel | Ceylon Harvest Organics</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">CH</div>
+                <div class="brand-name">Ceylon<span>Harvest</span></div>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">&#9776;</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="admin.html" class="active nav-btn">Admin Portal</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+            <div class="admin-header-bar">
+                <div>
+                    <span class="section-subtitle">Database Control Center</span>
+                    <h1 style="font-size: 2rem; font-weight: 800;">Management Portal (DML Operations)</h1>
+                </div>
+                <button class="btn-primary" id="openAddProductBtn">+ Add New Product (INSERT)</button>
+            </div>
+
+            <div class="admin-stats-grid">
+                <div class="admin-stat-card">
+                    <div>
+                        <div class="admin-stat-val" id="statTotalProducts">0</div>
+                        <div class="admin-stat-lbl">Active Products</div>
+                    </div>
+                    <div style="font-size: 1.8rem; color: var(--accent-emerald);">&#128230;</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div>
+                        <div class="admin-stat-val" id="statTotalInquiries">0</div>
+                        <div class="admin-stat-lbl">Contact Inquiries</div>
+                    </div>
+                    <div style="font-size: 1.8rem; color: var(--accent-gold);">&#9993;</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div>
+                        <div class="admin-stat-val" id="statTotalStock">0</div>
+                        <div class="admin-stat-lbl">Total Stock Units</div>
+                    </div>
+                    <div style="font-size: 1.8rem; color: var(--accent-emerald);">&#128200;</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div>
+                        <div class="admin-stat-val" id="statTotalCategories">0</div>
+                        <div class="admin-stat-lbl">Categories</div>
+                    </div>
+                    <div style="font-size: 1.8rem; color: var(--accent-gold);">&#128193;</div>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 3rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h2 style="font-size: 1.4rem; font-weight: 800;">Product Catalog Management (SELECT / UPDATE / DELETE)</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Price (LKR)</th>
+                                <th>Stock</th>
+                                <th>Origin Region</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminProductsTable">
+                            <tr><td colspan="7" style="text-align: center; padding: 2rem;">Loading product records...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h2 style="font-size: 1.4rem; font-weight: 800;">Customer Contact Inquiries (INSERT / UPDATE / DELETE)</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer Details</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Status (UPDATE)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminInquiriesTable">
+                            <tr><td colspan="6" style="text-align: center; padding: 2rem;">Loading customer inquiries...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-backdrop" id="productModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Add New Sri Lankan Product</h3>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="productForm">
+                <input type="hidden" id="productId" />
+                
+                <div class="form-group">
+                    <label class="form-label" for="prodName">Product Title *</label>
+                    <input type="text" id="prodName" class="form-control" required placeholder="e.g. Ceylon Alba Cinnamon Powder" />
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="prodCategory">Category *</label>
+                        <select id="prodCategory" class="form-control" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="prodPrice">Price (LKR) *</label>
+                        <input type="number" step="0.01" id="prodPrice" class="form-control" required placeholder="1850.00" />
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="prodUnit">Unit / Packaging *</label>
+                        <input type="text" id="prodUnit" class="form-control" required placeholder="e.g. 250g Pack" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="prodStock">Stock Quantity *</label>
+                        <input type="number" id="prodStock" class="form-control" required placeholder="100" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="prodOrigin">Origin Region (Sri Lanka) *</label>
+                    <input type="text" id="prodOrigin" class="form-control" required placeholder="e.g. Matale, Sri Lanka" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="prodDesc">Description *</label>
+                    <textarea id="prodDesc" class="form-control" required placeholder="Provide product description..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="prodImg">Image URL</label>
+                    <input type="url" id="prodImg" class="form-control" placeholder="https://images.unsplash.com/..." />
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem;">
+                    <button type="submit" class="btn-primary">Execute DML Save Query</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ceylon Harvest Organics (Pvt) Ltd. Database DML Management Portal.</p>
+        </div>
+    </footer>
+
+    <script src="js/admin.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
