@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Ceylon Harvest Organics</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">CH</div>
+                <div class="brand-name">Ceylon<span>Harvest</span></div>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">&#9776;</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="admin.html" class="nav-btn">Admin Portal</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h1 class="section-title">Contact Our Sri Lankan Team</h1>
+                <p class="section-desc">Have questions about bulk spice orders, export inquiries, or retail distribution? Send us a direct message and our team will get back to you.</p>
+            </div>
+
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem;">Corporate Locations</h3>
+
+                    <div class="info-item">
+                        <div class="info-icon">&#127963;</div>
+                        <div class="info-text">
+                            <h4>Colombo Head Office</h4>
+                            <p>No. 45, Galle Road, Colombo 03, Western Province, Sri Lanka</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">&#127968;</div>
+                        <div class="info-text">
+                            <h4>Kandy Processing Facility</h4>
+                            <p>Spice Park Road, Peradeniya, Kandy, Sri Lanka</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">&#9742;</div>
+                        <div class="info-text">
+                            <h4>Phone & WhatsApp</h4>
+                            <p>Landline: +94 11 234 5678</p>
+                            <p>Mobile: +94 77 987 6543</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">&#9993;</div>
+                        <div class="info-text">
+                            <h4>Email Communications</h4>
+                            <p>General: info@ceylonharvest.lk</p>
+                            <p>Exports: export@ceylonharvest.lk</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem;">Send Inquiry (Saved to Database)</h3>
+                    
+                    <div id="formAlert" class="alert-box"></div>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="fullName">Your Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" required placeholder="e.g. Ruwan Silva" />
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" required placeholder="name@example.com" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+94 77 123 4567" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Inquiry Subject *</label>
+                            <input type="text" id="subject" class="form-control" required placeholder="e.g. Alba Cinnamon Wholesale Quote" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Your Message *</label>
+                            <textarea id="message" class="form-control" required placeholder="Please state your order quantity or question..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Submit Inquiry to Database</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="brand-logo" style="margin-bottom: 1rem;">
+                    <div class="brand-icon">CH</div>
+                    <div class="brand-name">Ceylon<span>Harvest</span></div>
+                </div>
+                <p>Ceylon Harvest Organics (Pvt) Ltd - Colombo, Sri Lanka.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Control Center</h4>
+                <ul class="footer-links">
+                    <li><a href="admin.html">Admin Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hotline</h4>
+                <p style="color: var(--accent-emerald); font-weight: 700;">+94 11 234 5678</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ceylon Harvest Organics (Pvt) Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
